@@ -1,0 +1,10 @@
+
+<view class="container">
+  <text class="title">*我们在程序中经常使用“System.out.println()”来输出信息，语句中的System是包名，out是类名，println是方法名。（）</text>
+  
+  <view class="option">True</view>
+  <view class="option">False</view>
+  
+  
+</view>
+<view class="start" catchtap='gotopage3'>确认选择，下一页</view>

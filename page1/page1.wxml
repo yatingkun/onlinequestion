@@ -1,0 +1,12 @@
+<block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type}}'>
+<view class="container" >
+  <text class="title">*{{item.title}}</text>
+  
+  <view class="option">A:{{item.option1}}</view>
+  <view class="option">B:{{item.option2}}</view>
+  <view class="option">C:{{item.option3}}</view>
+  <view class="option">D:{{item.option4}}</view>
+  
+</view>
+</block>
+<view class="submit" catchtap='submit'>确认选择,提交答案</view>

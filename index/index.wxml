@@ -1,0 +1,13 @@
+
+
+
+<view class="container-index">
+  <view>
+    <image src="{{avatarUrl}}" class="avatar"></image>
+  </view>
+  <view class="username">{{nickName}}</view>
+  <view class="start-index" catchtap='gotopage1'>开始答题</view>
+   <view class="description" catchtap='description'>答题说明</view>
+</view>
+
+<image src="../images/air.jpg" class="background"></image>
