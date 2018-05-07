@@ -4,11 +4,12 @@ Page({
 
 
   data: {
+    
   },
   onLoad: function () {
-    /*var that = this;
-    wx.request({
-      url: 'http://193.112.6.40/course/data/get-all-question.do',
+  var that = this;
+   /* wx.request({
+      url: 'http://193.112.221.133/data/get-all-selectquestion-and-answer.do',
 
       header: { "Content-Type": "" },
       success: function (res) {
@@ -18,11 +19,11 @@ Page({
         });
         console.log(resdata);
       }
-    });*/
+  });*/
     this.setData({
       textdata:textdata.textdata
     });
-console.log(textdata.textdata);
+//console.log(textdata.textdata);
   },
 
   /**
@@ -73,12 +74,39 @@ console.log(textdata.textdata);
   onShareAppMessage: function () {
 
   },
-  gotopage2: function () {
-    wx.navigateTo({
-      url: '../page2/page2',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+
+  choose:function(event){
+    var id = event.currentTarget.dataset.id;
+    var num = event.currentTarget.dataset.num;
+    if(id==1){
+    textdata.textdata[num].imageurl.imageurlA="../images/true.png";
+    textdata.textdata[num].imageurl.imageurlB= "";
+    textdata.textdata[num].imageurl.imageurlC = "";
+    textdata.textdata[num].imageurl.imageurlD = "";
+    };
+    if (id == 2) {
+      textdata.textdata[num].imageurl.imageurlA = "";
+      textdata.textdata[num].imageurl.imageurlB = "../images/true.png";
+      textdata.textdata[num].imageurl.imageurlC = "";
+      textdata.textdata[num].imageurl.imageurlD = "";
+    }
+    if (id == 3) {
+      textdata.textdata[num].imageurl.imageurlA = "";
+      textdata.textdata[num].imageurl.imageurlB = "";
+      textdata.textdata[num].imageurl.imageurlC = "../images/true.png";
+      textdata.textdata[num].imageurl.imageurlD = "";
+    }
+    if (id == 4) {
+      textdata.textdata[num].imageurl.imageurlA = "";
+      textdata.textdata[num].imageurl.imageurlB = "";
+      textdata.textdata[num].imageurl.imageurlC = "";
+      textdata.textdata[num].imageurl.imageurlD = "../images/true.png";
+    }
+    this.setData({
+      textdata: textdata.textdata
     })
-  }
+    
+  
+  },
+  
 })
