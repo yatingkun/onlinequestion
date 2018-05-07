@@ -21,15 +21,3 @@ page{
   display: flex;
   justify-content: space-between;
 }
-.submit {
-   position: fixed;
-  bottom:0;
-  width: 100%;
-  font-size: 30rpx; 
-  height: 45rpx;
-  line-height: 45rpx;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-  letter-spacing: 15rpx;
-}

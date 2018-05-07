@@ -92,8 +92,8 @@ var datalist = [{
   type: 1,
   title: '下面有关javascript系统方法的描述，错误的是？',
   option1: 'parseFloat方法：该方法将一个字符串转换成对应的小数',
-  option2: 'isNaN方法：该方法用于检测参数是否为数值型，如果是，返回true，否则，返回false。',
-  option3: 'escape方法： 该方法返回对一个字符串编码后的结果字符串',
+  option2: 'isNaN方法:如果是数值型，返回true，否则，返回false。',
+  option3: 'escape方法:该方法返回对一个字符串编码后的结果字符串',
   option4: 'eval方法：该方法将某个参数字符串作为一个JavaScript执行',
   answer: 2, imageurl: {
     imageurlA: '',

@@ -1,3 +1,8 @@
+<view class="time" >  
+    <text>还剩：</text>
+    <view >{{minute}}分</view>  
+    <view >{{second}}秒</view>  
+  </view>  
 <block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type==1}}'>
 <view class="container" >
   <text class="title">*{{item.title}}</text> 
@@ -32,4 +37,4 @@
   </view>
 </block>
 
-<view class="submit" catchtap='submit'>确认选择,提交答案</view>
+<button  class="submit" catchtap='submit' disabled='{{disabled}}'>确认选择,提交答案</button>
