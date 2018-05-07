@@ -1,12 +1,35 @@
-<block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type}}'>
+<block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type==1}}'>
 <view class="container" >
-  <text class="title">*{{item.title}}</text>
-  
-  <view class="option">A:{{item.option1}}</view>
-  <view class="option">B:{{item.option2}}</view>
-  <view class="option">C:{{item.option3}}</view>
-  <view class="option">D:{{item.option4}}</view>
+  <text class="title">*{{item.title}}</text> 
+  <view class="option" catchtap='choose' data-id="1" data-num='{{index}}'> 
+    <text>A:{{item.option1}}</text>
+    <image src='{{item.imageurl.imageurlA}}' ></image>
+  </view>
+  <view class="option" catchtap='choose' data-id="2" data-num='{{index}}'> 
+  <text>B:{{item.option2}} </text>
+  <image src='{{item.imageurl.imageurlB}}' ></image>
+  </view>
+  <view class="option" catchtap='choose' data-id="3" data-num='{{index}}'> 
+   <text>B:{{item.option3}} </text>
+  <image src='{{item.imageurl.imageurlC}}' ></image>
+  </view>
+  <view class="option" catchtap='choose' data-id="4" data-num='{{index}}'> 
+ <text>B:{{item.option4}} </text>
+  <image src='{{item.imageurl.imageurlD}}' ></image>
+  </view>
   
 </view>
 </block>
+<block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type==2}}'>
+ <text class="title">*{{item.title}}</text>
+  <view class="option" catchtap='choose' data-id="1" data-num='{{index}}'>
+  <text>{{item.option1}}</text>
+  <image src='{{item.imageurl.imageurlA}}' ></image>
+  </view>
+  <view class="option" catchtap='choose' data-id="2" data-num='{{index}}'>
+   <text>{{item.option2}}</text>
+   <image src='{{item.imageurl.imageurlB}}' ></image>
+  </view>
+</block>
+
 <view class="submit" catchtap='submit'>确认选择,提交答案</view>

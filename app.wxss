@@ -11,13 +11,15 @@ page{
 }
 .option{
   font-size: 25rpx;
-  margin-top:30rpx;
+  margin-top: 20rpx;
   margin-left: 20rpx;
   width: 90%;
   height: 40rpx;
   line-height: 40rpx;
-  border-radius: 5rpx;
-  background-color:blanchedalmond;
+  border-radius: 20rpx;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
 }
 .submit {
    position: fixed;
