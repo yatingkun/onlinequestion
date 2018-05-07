@@ -1,7 +1,7 @@
 Page({
   data: {},
   onLoad: function () {
-    /*var that = this;
+    var that = this;
 
     wx.login({
       success: function (res) {
@@ -19,7 +19,7 @@ Page({
           }
         })
       }
-    })*/
+    })
 
   },
   gotopage1:function(){

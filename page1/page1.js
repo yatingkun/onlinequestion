@@ -1,14 +1,18 @@
 var textdata = require("../textdata/textdata")
-var disabled = 'false';//控制提交按钮是否可按，为空时可按
+var disabled = 'disabled';//控制提交按钮是否可按，为空字符串时可按
 var counter = 1;//记录已答题数
 var currentId = [];//记录每次点击的题目的id;
+var chooseId=[];//记录答题的选项
+var score=0;// 记录分数；
+var right=0;//记录正答数目；
+var error=0;//记录错答数目
 Page({
-
-
   data: {
     minute: 10,
     second: 0,
-    disabled: ""
+    disabled: "",
+    Interval:"", //转接计时器事件句柄
+    reslut:""
   },
   onLoad: function () {
     //var that = this;
@@ -35,7 +39,10 @@ Page({
    */
   onReady: function () {
     var that = this;
-    setInterval(function () { that.timer() }, 1000);
+    var iy=setInterval(function () { that.timer() }, 1000);
+    that.setData({
+      Interval:iy
+    });
   },
 
   /**
@@ -49,13 +56,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
   },
 
@@ -79,11 +79,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-
   choose: function (event) {
     var id = event.currentTarget.dataset.id;
     var num = event.currentTarget.dataset.num;
-    if (counter <= textdata.textdata.length ) {
+    /**判断是否已做完所有题目，做完提交按钮才可按**/
+    if (counter) {
+      chooseId[num]=id;//记录每一题的选项；
       currentId.push(num);
       if (currentId.length == 2) {
         if (currentId[0] == currentId[1]) {
@@ -98,11 +99,10 @@ Page({
         this.setData({
           disabled: disabled
         });
-
       }
+      
     }
-    //console.log(textdata.textdata.length);
-    //console.log(counter);
+    /***进行各题之间的单项选择,给出相应显示*/
     if (id == 1) {
       textdata.textdata[num].imageurl.imageurlA = "../images/true.png";
       textdata.textdata[num].imageurl.imageurlB = "";
@@ -132,9 +132,9 @@ Page({
     })
 
   },
+  /*倒计时函数*/
   timer: function () {
     var that = this;
-
     if (that.data.second == 0) {
       that.setData({
         second: 59,
@@ -145,6 +145,56 @@ Page({
         second: that.data.second - 1
       })
     }
-  }
-
+  },
+  /**提交函数，统计分数，给出提示 */
+submit:function(){
+  var that = this;
+  textdata.textdata.forEach((item ,index)=>{
+    if (item.answer == chooseId[index]) {
+      score += 3;
+      right++;
+    }else{
+      error++;
+      if (chooseId[index] == 1) { 
+        item.imageurl.imageurlA ="../images/false.png";
+        if (item.answer == 2) { item.imageurl.imageurlB = "../images/true.png" };
+        if (item.answer == 3) { item.imageurl.imageurlC = "../images/true.png"  };
+        if (item.answer == 4) { item.imageurl.imageurlD = "../images/true.png"  };
+        };
+      if (chooseId[index] == 2) { 
+        item.imageurl.imageurlB = "../images/false.png";
+        if (item.answer == 1) { item.imageurl.imageurlB = "../images/true.png" };
+        if (item.answer == 3) { item.imageurl.imageurlC = "../images/true.png" };
+        if (item.answer == 4) { item.imageurl.imageurlD = "../images/true.png" };
+        };
+      if (chooseId[index] == 3) { 
+        item.imageurl.imageurlC = "../images/false.png";
+        if (item.answer == 1) { item.imageurl.imageurlB = "../images/true.png" };
+        if (item.answer == 2) { item.imageurl.imageurlC = "../images/true.png" };
+        if (item.answer == 4) { item.imageurl.imageurlD = "../images/true.png" };
+        };
+      if (chooseId[index] == 4) { 
+        item.imageurl.imageurlD = "../images/false.png";
+        if (item.answer == 1) { item.imageurl.imageurlB = "../images/true.png" };
+        if (item.answer == 2) { item.imageurl.imageurlC = "../images/true.png" };
+        if (item.answer == 3) { item.imageurl.imageurlD = "../images/true.png" };
+        };
+      
+    }
+    
+  }); 
+  disabled='disable';
+  wx.pageScrollTo({
+    scrollTop: 0
+  })
+  this.setData({
+    score:score,
+    disabled:disabled ,
+    textdata:textdata.textdata ,
+    right:right,
+    error:error,
+    reslut: "true"
+  });
+  clearInterval(that.data.Interval);//停止计时
+}
 })

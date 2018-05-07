@@ -5,7 +5,8 @@ page{
    background-color:aquamarine;
   position: fixed;
   bottom:0;
-  width: 100%;
+  width: 50%;
+  right: 25%;
   font-size: 30rpx; 
   height: 45rpx;
   line-height: 45rpx;
@@ -20,9 +21,29 @@ page{
   background-color: blanchedalmond;
   margin-right: 10rpx;
 }
-.time {
+.nav {
   display: flex;
   font-size: 25rpx;
-  justify-content: flex-end;
-  margin-top: 10rpx;
+  justify-content: center;
+  margin-top:20rpx;
+}
+.nav-left{
+  display: flex;
+}
+.time{
+ display: flex;
+  
+}
+.score{
+  color: green;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.right{
+  color: green;
+  margin-right: 20rpx
+}
+.error{
+  color: red;
+  margin-right: 20rpx
 }

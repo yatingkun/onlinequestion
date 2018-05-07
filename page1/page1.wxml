@@ -1,11 +1,30 @@
-<view class="time" >  
-    <text>还剩：</text>
+<view class="nav" >
+
+<view class="nav-left" wx:if='{{reslut}}'>
+<view class="right">
+<text>正答:</text>
+<text>{{right}}</text>
+</view>
+<view class='error'>
+<text>错答:</text>
+<text>{{error}}</text>
+</view>
+<view class="score">
+<text>获得:</text>
+ <text>{{score}}</text>
+ <text >分</text>
+ </view>
+ </view>
+ <view class='time'>
+    <text>还剩:</text>
     <view >{{minute}}分</view>  
     <view >{{second}}秒</view>  
-  </view>  
+    </view>
+  </view> 
+  <scroll-view scroll-top="{{scrollTop}}" enable-back-to-top="true">
 <block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type==1}}'>
 <view class="container" >
-  <text class="title">*{{item.title}}</text> 
+  <text class="title">{{index+1}}.{{item.title}}</text> 
   <view class="option" catchtap='choose' data-id="1" data-num='{{index}}'> 
     <text>A:{{item.option1}}</text>
     <image src='{{item.imageurl.imageurlA}}' ></image>
@@ -15,18 +34,18 @@
   <image src='{{item.imageurl.imageurlB}}' ></image>
   </view>
   <view class="option" catchtap='choose' data-id="3" data-num='{{index}}'> 
-   <text>B:{{item.option3}} </text>
+   <text>C:{{item.option3}} </text>
   <image src='{{item.imageurl.imageurlC}}' ></image>
   </view>
   <view class="option" catchtap='choose' data-id="4" data-num='{{index}}'> 
- <text>B:{{item.option4}} </text>
+ <text>D:{{item.option4}} </text>
   <image src='{{item.imageurl.imageurlD}}' ></image>
   </view>
   
 </view>
 </block>
 <block wx:for="{{textdata}}" wx:key="index" wx:if='{{item.type==2}}'>
- <text class="title">*{{item.title}}</text>
+ <text class="title">{{index+1}}.{{item.title}}</text>
   <view class="option" catchtap='choose' data-id="1" data-num='{{index}}'>
   <text>{{item.option1}}</text>
   <image src='{{item.imageurl.imageurlA}}' ></image>
@@ -36,5 +55,6 @@
    <image src='{{item.imageurl.imageurlB}}' ></image>
   </view>
 </block>
-
-<button  class="submit" catchtap='submit' disabled='{{disabled}}'>确认选择,提交答案</button>
+</scroll-view>
+<button  class="submit" catchtap='submit' disabled='{{disabled}}'>提交答案</button>
+<!--<button  class="submit" catchtap='submit' >确认选择,提交答案</button>-->
