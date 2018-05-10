@@ -47,3 +47,22 @@ page{
   color: red;
   margin-right: 20rpx
 }
+.name,.studentid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.name{
+  margin-bottom: 20rpx;
+}
+input{
+  background-color: #D9D9D9;
+  height: 40rpx;
+  line-height: 40rpx;
+  letter-spacing: 5rpx;
+  width:400rpx;
+  margin-left: 15rpx;
+  padding-left: 10rpx;
+  border-radius: 20rpx;
+}

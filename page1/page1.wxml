@@ -58,3 +58,13 @@
 </scroll-view>
 <button  class="submit" catchtap='submit' disabled='{{disabled}}'>提交答案</button>
 <!--<button  class="submit" catchtap='submit' >确认选择,提交答案</button>-->
+<modal hidden="{{hiddenmodalput}}" title="请输入姓名学号" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
+  <view class="name">
+    <text>姓名:</text>
+    <input type='text' placeholder="请输入姓名"  value='{{name}}'  bindinput ="userNameInput"/>
+  </view>
+  <view class="studentid">
+    <text>学号:</text>
+    <input type='text' placeholder="请输入学号"  value='{{studentid}}'bindinput="studentidInput"/>
+  </view>
+</modal>
