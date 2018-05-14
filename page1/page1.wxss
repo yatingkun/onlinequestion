@@ -1,5 +1,14 @@
 page{
+  height: 100%;
   background-color:bisque;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  margin-top:40rpx;
+  font-size: 30rpx;
 }
 .submit{
    background-color:aquamarine;
@@ -14,6 +23,18 @@ page{
   border-radius: 30rpx;
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
   letter-spacing: 15rpx;
+}
+.option{
+  font-size: 25rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 90%;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
 }
 .option image {
   width: 40rpx;

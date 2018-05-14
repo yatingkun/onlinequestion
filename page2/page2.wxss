@@ -1,19 +1,45 @@
-.name,.studentid{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
+page{
+  background-color:bisque;
+  padding-top:30rpx;
 }
-.name{
-  margin-bottom: 20rpx;
+.title,.answer{
+  width: 90%;
+  margin-left:35rpx;
+  background-color:antiquewhite;
+  border: 1px solid #d6d4d6;
+  border-radius: 5px;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  margin-bottom: 30rpx;
+}
+.title{
+  font-size: 25rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+ 
+}
+.answer{
+  height: 200rpx;
+  font-size: 20rpx;
+}
+
+.filling{
+  display: flex;
+  margin-top: 30rpx;
+  margin-left: 35rpx;
+  font-size: 20rpx;
+  align-items: center;
 }
 input{
-  background-color: #D9D9D9;
-  height: 40rpx;
-  line-height: 40rpx;
-  letter-spacing: 5rpx;
-  width:400rpx;
-  margin-left: 15rpx;
-  padding-left: 10rpx;
-  border-radius: 20rpx;
+  margin:20rpx 10rpx 20rpx 10rpx;
+  height: 50rpx;
+  width: 200rpx;
+  background-color:antiquewhite;
+  border: 1px solid #d6d4d6;
+  border-radius: 5px;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  
+}
+text{
+  height: 50rpx;
+  line-height: 50rpx;
 }
